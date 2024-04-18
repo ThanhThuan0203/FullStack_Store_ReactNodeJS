@@ -5,9 +5,8 @@ const authAdmin = async (req, res, next) => {
         const user = await Users.findOne({
             _id: req.user.id
         })
-
         if(user.role === 0) 
-        return res.status(400).json({msg:"Admin rescources access denied"})
+        return res.status(400).json({msg:"Không có quyền truy cập"})
 
         next()
     } catch (error) {
